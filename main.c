@@ -4,8 +4,22 @@ int main(int argc, char **argv)
 {
     if (argc == 1)
 	ft_bsq(0);
-    while (argc--)
+
+    argv++;
+    while (argc-- != 1)
     {
-	fd = open(
+	fd = open(*argv, O_RDONLY);
+	if (fd != -1)
+	{
+	    ft_putstr_fd("error can't read the file path :", 1);
+	    ft_putendl_fd(*argv);
+	    argv++;
+	    continue;
+	}
+	ft_bsq(fd);
+	close(fd);
+	argv++;
+    }
 
 }
+
