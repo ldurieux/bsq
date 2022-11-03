@@ -10,6 +10,7 @@ t_solver	*solver_new(char *chrs)
 	res->last_line = NULL;
 	res->best_point.x = 0;
 	res->best_point.y = 0;
+	res->best_point_size = 0;
 	res->chrs = chrs;
 	return (res);
 }

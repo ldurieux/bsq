@@ -1,6 +1,7 @@
 #ifndef SOLVER_H
 # define SOLVER_H
 
+# include "libft.h"
 # include <stdlib.h>
 # include <stdint.h>
 
@@ -24,12 +25,14 @@ typedef struct s_rect
 
 typedef struct s_solver
 {
-	char	*last_line;
-	t_point	best_point;
-	char	*chrs;
+	uint32_t	*last_line;
+	t_point		best_point;
+	uint32_t	best_point_size;
+	char		*chrs;
 }	t_solver;
 
 t_solver	*solver_new(char *chrs);
+int			solver_add_line(t_solver *solver, char *line);
 t_rect		solver_get_solution(t_solver *solver);
 void		solver_delete(t_solver *solver);
 
