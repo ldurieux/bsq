@@ -1,7 +1,11 @@
 #include "bsq_b.h"
 
-static int ft_check(char *str, int ln)
+static int ft_check(char *str, int ln, t_solver *solv)
 {
+	while (ft_strchr(solv->chrs, *(str--)) && ln + 1)
+		ln--;
+	if (*str != '\n' || ln)
+		return (0);
 	return (1);
 }
 
@@ -22,11 +26,11 @@ void	ft_bsq(int fd, char *path)
 		return (solver_delete(solver));
 	while (line_count--)
 		if (read(fd, line, ln + 1) < ln + 1 
-				|| !ft_check(line, ln)
+				|| !ft_check(line, ln, solver)
 				|| !solver_add_line(solver, line))
 			return (free(line), solver_delete(solver));
 	ln = open(path, O_RDONLY);
-	if (ln != -1)
+//	if (ln != -1)
 		//	solver_print_solution(solver, ln);
-		return (free(line), solver_delete(solver));
+	return (free(line), solver_delete(solver));
 }
