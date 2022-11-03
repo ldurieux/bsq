@@ -1,6 +1,6 @@
 #include "solver.h"
 
-static int	first_line(t_solver *solver, char *line)
+static int	first_line(t_solver *solver, const char *line)
 {
 	size_t	idx;
 
@@ -13,7 +13,7 @@ static int	first_line(t_solver *solver, char *line)
 	return (1);
 }
 
-void	solver_add_line(t_solver *solver, char *line)
+void	solver_add_line(t_solver *solver, const char *line)
 {
 	size_t	idx;
 	char	wall;

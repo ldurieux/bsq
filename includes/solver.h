@@ -33,8 +33,10 @@ typedef struct s_solver
 }	t_solver;
 
 t_solver	*solver_new(char *chrs);
-int			solver_add_line(t_solver *solver, char *line);
+int			solver_add_line(t_solver *solver, const char *line);
 t_rect		solver_get_solution(t_solver *solver);
+void		solver_print_solution(t_solver *solver, const char *data);
+void		solver_print_solution_fd(t_solver *solver, int fd);
 void		solver_delete(t_solver *solver);
 
 #endif // SOLVER_H
