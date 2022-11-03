@@ -1,6 +1,6 @@
 #include "bsq_b.h"
 
-char	*ft_read_chars(int fd)
+char	*ft_read_till_lnfd(int fd)
 {
     char    dst; 
     char    pin;

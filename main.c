@@ -13,11 +13,11 @@ int main(int argc, char **argv)
 	if (fd != -1)
 	{
 	    ft_putstr_fd("error can't read the file path :", 1);
-	    ft_putendl_fd(*argv);
+	    ft_putendl_fd(*argv, 1);
 	    argv++;
 	    continue;
 	}
-	ft_bsq(fd);
+	ft_bsq(fd, *argv);
 	close(fd);
 	argv++;
     }

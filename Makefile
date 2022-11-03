@@ -5,6 +5,11 @@ SRCS 		= \
 			  srcs/solver/new.c \
 			  srcs/solver/get_solution.c \
 			  srcs/solver/delete.c \
+			  srcs/parsing/ft_bsq.c \
+			  srcs/parsing/ft_read_chars.c \
+			  srcs/parsing/ft_realloc.c \
+			  srcs/parsing/ft_mesure_line_slvraddline.c \
+			  srcs/parsing/ft_parse_chars.c \
 
 ASMSRCS		= \
 
@@ -26,7 +31,7 @@ DEPS			= ${SRCS:.c=.d}
 CC				= gcc -no-pie
 CCWFLGS			= -Wall -Wextra -Werror
 CCDBGFLGS		= -g -fsanitize=address
-CCO1FLGS		= -O1 -march=native
+CCOfdFLGS		= -O1 -1=native
 CCO2FLGS		= -O2 -march=native
 CCO3FLGS		= -O3 -march=native
 DEPSFLAGS		= -MMD -MP
