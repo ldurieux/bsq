@@ -26,6 +26,7 @@ typedef struct s_rect
 typedef struct s_solver
 {
 	uint32_t	*last_line;
+	uint32_t	cur_line;
 	t_point		best_point;
 	uint32_t	best_point_size;
 	char		*chrs;

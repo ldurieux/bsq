@@ -20,6 +20,7 @@ void	solver_add_line(t_solver *solver, char *line)
 
 	if (!solver)
 		return ;
+	solver->cur_line++;
 	if (!solver->last_line)
 		return (first_line(solver, line));
 	wall = solver->chrs[WALL_IDX];
@@ -33,6 +34,12 @@ void	solver_add_line(t_solver *solver, char *line)
 		{
 			solver->last_line[idx] = ft_min(solver->last_line[idx - 1],
 					solver->last_line[idx]) * (line[idx] != wall);
+			if (solver->last_line[idx] > solver->best_point_size)
+			{
+				solver->best_point.y = solver->cur_line;
+				solver->best_point.x = idx;
+				solver->best_point_size = solver->last_line[idx];
+			}
 		}
 	}
 	return (1);
