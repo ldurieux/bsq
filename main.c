@@ -1,10 +1,11 @@
-#include <stdio.h>
+#include "bsq_b.h"
 
 int main(int argc, char **argv)
 {
+    int	fd;
+
     if (argc == 1)
 	ft_bsq(0);
-
     argv++;
     while (argc-- != 1)
     {
@@ -20,6 +21,6 @@ int main(int argc, char **argv)
 	close(fd);
 	argv++;
     }
-
+    return (0);
 }
 

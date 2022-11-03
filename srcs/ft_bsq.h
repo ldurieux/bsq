@@ -7,3 +7,5 @@ void	ft_bsq(int fd)
 
     solver = solver_new(ft_parse_chars(fd, lncount));
     
+
+    
