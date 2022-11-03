@@ -2,14 +2,17 @@ NAME		= bsq
 
 SRCS 		= \
 			  main.c \
-			  srcs/solver/new.c \
-			  srcs/solver/get_solution.c \
+			  srcs/solver/add_line.c \
 			  srcs/solver/delete.c \
+			  srcs/solver/get_solution.c \
+			  srcs/solver/new.c \
+			  srcs/solver/print_solution_fd.c \
 			  srcs/parsing/ft_bsq.c \
 			  srcs/parsing/ft_read_chars.c \
 			  srcs/parsing/ft_realloc.c \
 			  srcs/parsing/ft_mesure_line_slvraddline.c \
 			  srcs/parsing/ft_parse_chars.c \
+			  
 
 ASMSRCS		= \
 

@@ -20,7 +20,7 @@ t_solver	*solver_new(char *chrs)
 	if (!res)
 		return (NULL);
 	res->last_line = NULL;
-	res->cur_line = (size_t)-1;
+	res->cur_line = (uint32_t)-1;
 	res->best_point.x = 0;
 	res->best_point.y = 0;
 	res->best_point_size = 0;

@@ -45,11 +45,11 @@ static int	init(t_solver *solver, const char *line, size_t *idx, char *wall)
 	}
 	wall = solver->chrs[WALL_IDX];
 	idx = (size_t)0;
-	solver->last_line[0] = (line[idx] == wall) * solver->last_line[0];
+	solver->last_line[0] = (line[*idx] == wall) * solver->last_line[0];
 	return (1);
 }
 
-void	solver_add_line(t_solver *solver, const char *line)
+int	solver_add_line(t_solver *solver, const char *line)
 {
 	size_t	idx;
 	char	wall;

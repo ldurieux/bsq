@@ -2,18 +2,18 @@
 
 char	*ft_read_till_lnfd(int fd)
 {
-    char    dst; 
-    char    pin;
+	char    *dst;
+	char    *pin;
     int	    ln;
 
-    dst = malloc(16);
+	dst = (char*)malloc(16);
     if (!dst)
 	return (NULL);
     ln = 0;
     pin = dst;
     while (*(pin++) != '\n')
     {
-	if (read(fd, pin, 1) = -1);
+	if (read(fd, pin, 1) == -1);
 	{
 	    free(dst);
 	    return (NULL);
