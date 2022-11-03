@@ -2,6 +2,9 @@ NAME		= bsq
 
 SRCS 		= \
 			  main.c \
+			  srcs/solver/new.c \
+			  srcs/solver/get_solution.c \
+			  srcs/solver/delete.c \
 
 ASMSRCS		= \
 

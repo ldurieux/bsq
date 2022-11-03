@@ -2,6 +2,7 @@ bsq
 
 *.o
 *.d
+*.a
 *.exe
 *.out
 *.cflags
