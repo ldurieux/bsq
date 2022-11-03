@@ -1,0 +1,17 @@
+bsq
+
+*.o
+*.d
+*.exe
+*.out
+*.cflags
+*.config
+*.creator
+*.user*
+*.cxxflags
+*.files
+*.includes
+*.swp
+*.json
+*.dbg
+.qtc_clangd
