@@ -11,9 +11,9 @@ char	*ft_read_till_lnfd(int fd)
 		return (NULL);
 	ln = 0;
 	pin = dst;
-	while (*(pin++) != '\n')
+	while (1)
 	{
-		if (read(fd, pin, 1) == -1);
+		if (read(fd, pin, 1) == -1)
 		{
 			free(dst);
 			return (NULL);
@@ -25,6 +25,8 @@ char	*ft_read_till_lnfd(int fd)
 			if (!dst)
 				return (NULL);
 		}
+		if (*(pin++) == '\n')
+			break ;
 	}
 	*(--pin) = 0;
 	return (dst);
