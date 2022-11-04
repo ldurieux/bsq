@@ -35,17 +35,15 @@ static int	first_line(t_solver *solver, const char *line)
 
 static int	init(t_solver *solver, const char *line, size_t *idx, char *wall)
 {
-	if (!solver)
-		return (0);
 	solver->cur_line++;
 	if (!solver->last_line)
 	{
 		first_line(solver, line);
 		return (0);
 	}
-	wall = solver->chrs[WALL_IDX];
-	idx = (size_t)0;
-	solver->last_line[0] = (line[*idx] == wall) * solver->last_line[0];
+	*wall = solver->chrs[WALL_IDX];
+	*idx = (size_t)0;
+	solver->last_line[0] = (line[*idx] == *wall) * solver->last_line[0];
 	return (1);
 }
 
@@ -54,8 +52,10 @@ int	solver_add_line(t_solver *solver, const char *line)
 	size_t	idx;
 	char	wall;
 
+	if (!solver)
+		return (0);
 	if (!init(solver, line, &idx, &wall))
-		return ;
+		return (solver->last_line);
 	while (line[++idx])
 	{
 		if (line[idx] == wall)
