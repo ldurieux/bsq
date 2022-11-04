@@ -43,7 +43,7 @@ static int	init(t_solver *solver, const char *line, size_t *idx, char *wall)
 	}
 	*wall = solver->chrs[WALL_IDX];
 	*idx = (size_t)0;
-	solver->last_line[0] = (line[*idx] == *wall) * solver->last_line[0];
+	solver->last_line[0] = (line[0] != *wall) * solver->last_line[0];
 	return (1);
 }
 
@@ -63,7 +63,7 @@ int	solver_add_line(t_solver *solver, const char *line)
 		else
 		{
 			solver->last_line[idx] = ft_min(solver->last_line[idx - 1],
-					solver->last_line[idx]) * (line[idx] != wall);
+					solver->last_line[idx]) + (line[idx] != wall);
 			if (solver->last_line[idx] > solver->best_point_size)
 			{
 				solver->best_point.y = solver->cur_line;

@@ -33,10 +33,14 @@ void	ft_bsq(int fd, char *path)
 		return (solver_delete(solver));
 	line_count--;
 	while (line_count--)
-		if (read(fd, line, ln + 1) < ln + 1 
-				|| !ft_check(line, ln, solver)
-				|| !solver_add_line(solver, line))
+	{
+		if (read(fd, line, ln + 1) < ln + 1)
 			return (free(line), solver_delete(solver));
+		if (!ft_check(line, ln, solver))
+			return (free(line), solver_delete(solver));
+		if (!solver_add_line(solver, line))
+			return (free(line), solver_delete(solver));
+	}
 	fd = open(path, O_RDONLY);
 	if (fd != -1)
 		solver_print_solution_fd(solver, fd);
