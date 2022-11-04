@@ -2,11 +2,18 @@
 
 static int ft_check(char *str, int ln, t_solver *solv)
 {
-	while (ft_strchr(solv->chrs, *(str--)) && ln + 1)
-		ln--;
-	if (*str != '\n' || ln)
-		return (0);
-	return (1);
+	char	empty;
+	char	wall;
+
+	empty = solv->chrs[EMPTY_IDX];
+	wall = solv->chrs[WALL_IDX];
+	while (ln--)
+	{
+		if (*str != empty && *str != wall)
+			return (0);
+		str++;
+	}
+	return (*str == '\n');
 }
 
 void	ft_bsq(int fd, char *path)
