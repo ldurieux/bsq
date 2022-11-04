@@ -31,13 +31,14 @@ void	ft_bsq(int fd, char *path)
 	line = malloc(ln + 1);
 	if (!line)
 		return (solver_delete(solver));
+	line_count--;
 	while (line_count--)
 		if (read(fd, line, ln + 1) < ln + 1 
 				|| !ft_check(line, ln, solver)
 				|| !solver_add_line(solver, line))
 			return (free(line), solver_delete(solver));
-	ln = open(path, O_RDONLY);
-//	if (ln != -1)
-		//	solver_print_solution(solver, ln);
+	fd = open(path, O_RDONLY);
+	if (fd != -1)
+		solver_print_solution_fd(solver, fd);
 	return (free(line), solver_delete(solver));
 }

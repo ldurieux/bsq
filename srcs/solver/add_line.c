@@ -22,7 +22,7 @@ static int	first_line(t_solver *solver, const char *line)
 	idx = (size_t)-1;
 	while (line[++idx])
 	{
-		solver->last_line[idx] = line[idx] == solver->chrs[WALL_IDX];
+		solver->last_line[idx] = line[idx] == solver->chrs[EMPTY_IDX];
 		if (solver->last_line[idx] > solver->best_point_size)
 		{
 			solver->best_point.y = solver->cur_line;
@@ -56,7 +56,7 @@ int	solver_add_line(t_solver *solver, const char *line)
 		return (0);
 	if (!init(solver, line, &idx, &wall))
 		return (solver->last_line);
-	while (line[++idx])
+	while (line[++idx] != '\n')
 	{
 		if (line[idx] == wall)
 			solver->last_line[idx] = 0;

@@ -16,7 +16,7 @@ static void	skip_line(int fd)
 {
 	char	buf;
 
-	while (read(fd, &buf, 1) <= 0 || buf == '\n')
+	while (read(fd, &buf, 1) == 1 && buf != '\n')
 		;
 }
 
@@ -38,10 +38,10 @@ void	solver_print_solution_fd(t_solver *solver, int fd)
 	if (!solver)
 		return ;
 	init(solver, fd, &rect, &pos);
-	while (++pos.y)
+	while (++pos.y != -1)
 	{
 		pos.x = (uint32_t) - 1;
-		while (++pos.x)
+		while (++pos.x != -1)
 		{
 			if (read(fd, &buf, 1) <= 0)
 				return ;
@@ -50,7 +50,8 @@ void	solver_print_solution_fd(t_solver *solver, int fd)
 			if (pos.x >= rect.x && pos.x < rect.width
 				&& pos.y >= rect.y && pos.y < rect.height)
 				write(STDOUT, solver->chrs + SOLUTION_IDX, 1);
-			write(STDOUT, &buf, 1);
+			else
+				write(STDOUT, &buf, 1);
 		}
 		write(STDOUT, "\n", 1);
 	}
