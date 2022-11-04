@@ -15,5 +15,6 @@ bsq
 *.includes
 *.swp
 *.json
+*.txt
 *.dbg
 .qtc_clangd
